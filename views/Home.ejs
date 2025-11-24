@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Records</title>
+<style>
+h1{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+body {
+    font-family: Arial;
+    background: #793fbb;
+    padding: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+th {
+    background: #333333;
+    color: white;
+}
+tr{
+    background: #33adef;
+}
+tr:nth-child(even) {
+    background: #65c5f9;
+}
+a {
+    color: #ffffff;
+    text-decoration: none;
+    border: #333;
+    background-color: rgb(43, 164, 12);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: rgb(221, 12, 12);
+    color: white;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>📚 Student Records</h1>
+
+<table>
+    <tr>
+        <th>SID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Options</th>
+    </tr>
+
+    <% students.forEach(student => { %>
+    <tr>
+        <td><%= student.Sid %></td>
+        <td><%= student.Sname %></td>
+        <td><%= student.address %></td>
+        <td><%= student.mobile %></td>
+        <td>
+            <!-- EDIT: just go to GET /:id/edit -->
+            <a href="/<%= student.Sid %>/edit">Edit</a>
+
+            <!-- DELETE: POST + _method=DELETE to /:id -->
+            <form action="/<%= student.Sid %>/delete?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    <% }) %>
+</table>
+<form action="/create-fake-students" method="POST">
+    <button type="submit">Create 5 Fake Students</button>
+</form>
+
+<form action="/students/delete-all?_method=DELETE" method="POST" 
+      onsubmit="return confirm('Are you sure you want to DELETE ALL students? 😨');">
+    <button style="background:#000;color:#fff;margin-top:10px;">
+        🧨 Delete All Students
+    </button>
+</form>
+
+</body>
+</html>
+
+
+</body>
+</html>

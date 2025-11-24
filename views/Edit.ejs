@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Edit Student Record</title>
+    </head>
+    <body>
+    <h1>Edit Student Record</h1>
+    <h2><%=student.Sname%></h2>
+    <h3>Student-ID:<%=student.Sid%></h3>
+    <form action="/<%=student.Sid%>/edit?_method=PATCH" method="POST">
+    <input type="text" name="Sname" value="<%=student.Sname%>"/><br><br>
+    <textarea rows="4" cols="50" name="address" ><%=student.address%></textarea><br><br>
+    <textarea rows="4" cols="50" name="mobile" ><%=student.mobile%></textarea><br><br>
+    <button>Update</button>
+
+    </body>
+</html>

@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS schooldb;
+USE schooldb;
+
+CREATE TABLE IF NOT EXISTS student (
+    Sid VARCHAR(36) PRIMARY KEY,
+    Sname VARCHAR(100) NOT NULL,
+    address VARCHAR(255),
+    mobile VARCHAR(15)
+);
+SELECT COUNT(*) FROM student;
+SELECT * FROM student;
