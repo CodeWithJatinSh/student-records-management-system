@@ -97,7 +97,7 @@ app.delete('/:id/delete', (req, res) => {
 app.post("/create-fake-students", (req, res) => {
     const values = [];
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         values.push([
             faker.string.uuid(),                       // Sid
             faker.person.fullName(),
